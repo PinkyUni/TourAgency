@@ -6,7 +6,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-import com.PinkyUni.view.StudentListViewCell;
+import com.PinkyUni.view.TourListViewCell;
 import com.PinkyUni.model.Tour;
 
 public class Controller {
@@ -22,7 +22,7 @@ public class Controller {
         ObservableList<Tour> items = FXCollections.observableArrayList();
         toursList.setItems(items);
         items.add(new Tour("The best tour ever", "C:\\Users\\Anya\\Pictures\\sticker\\img\\cat.jpg"));
-        toursList.setCellFactory(param -> new StudentListViewCell());
+        toursList.setCellFactory(param -> new TourListViewCell());
 
         searchBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override

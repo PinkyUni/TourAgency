@@ -1,27 +1,24 @@
 package com.PinkyUni.model;
 
+import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.Objects;
 
-public class Tour {
+public class Tour implements Serializable, Comparable<Tour> {
 
     private static int tourCount = 0;
-    private int identifier;
+    private int id;
     private String name;
     private Date departureTime;
     private Date arrivalTime;
     private TRANSPORT transport;
     private TOUR_TYPE type;
     private String description;
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
+    private float price;
     private String image;
+    private Country.CountryCode[] countryCodes;
+    private String[] hotelsId;
 
     enum TRANSPORT {
         BUS, TRAIN, PLANE
@@ -40,7 +37,7 @@ public class Tour {
     }
 
     public Tour(String name, Date departureTime, Date arrivalTime, TRANSPORT transport, TOUR_TYPE type, String description) {
-        this.identifier = tourCount++;
+        this.id = tourCount++;
         this.name = name;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
@@ -49,12 +46,75 @@ public class Tour {
         this.description = description;
     }
 
-    public int getIdentifier() {
-        return identifier;
+    public Country.CountryCode[] getCountryCodes() {
+        return countryCodes;
     }
 
-    public void setIdentifier(int identifier) {
-        this.identifier = identifier;
+    public void setCountryCodes(Country.CountryCode[] countryCodes) {
+        this.countryCodes = countryCodes;
+    }
+
+    public String[] getHotelsId() {
+        return hotelsId;
+    }
+
+    public void setHotelsId(String[] hotelsId) {
+        this.hotelsId = hotelsId;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    @Override
+    public int compareTo(Tour o) {
+        if (!name.equals(o.name))
+            return name.compareTo(o.name);
+        else
+            return id - o.id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tour tour = (Tour) o;
+        return Float.compare(tour.getPrice(), getPrice()) == 0 &&
+                Objects.equals(getName(), tour.getName()) &&
+                Objects.equals(getDepartureTime(), tour.getDepartureTime()) &&
+                Objects.equals(getArrivalTime(), tour.getArrivalTime()) &&
+                getTransport() == tour.getTransport() &&
+                getType() == tour.getType() &&
+                Arrays.equals(getCountryCodes(), tour.getCountryCodes()) &&
+                Arrays.equals(getHotelsId(), tour.getHotelsId());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(getName(), getDepartureTime(), getArrivalTime(), getTransport(), getType(), getPrice());
+        result = 31 * result + Arrays.hashCode(getCountryCodes());
+        result = 31 * result + Arrays.hashCode(getHotelsId());
+        return result;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

@@ -8,11 +8,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import java.io.File;
 
-public class StudentListViewCell extends ListCell<Tour> {
+public class TourListViewCell extends ListCell<Tour> {
 
     private VBox vBox = new VBox();
 
-    public StudentListViewCell() {
+    public TourListViewCell() {
     }
 
     @Override
