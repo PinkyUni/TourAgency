@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TourAgency/com/PinkyUni/controller/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TourAgency/com/PinkyUni/controller/Controller$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TourAgency/com/PinkyUni/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TourAgency/com/PinkyUni/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TourAgency/com/PinkyUni/model/Country$CountryCode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TourAgency/com/PinkyUni/model/Country.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TourAgency/com/PinkyUni/model/Hotel$FOOD.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TourAgency/com/PinkyUni/model/Hotel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TourAgency/com/PinkyUni/model/Order.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TourAgency/com/PinkyUni/model/Tour$TOUR_TYPE.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TourAgency/com/PinkyUni/model/Tour$TRANSPORT.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TourAgency/com/PinkyUni/model/Tour.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TourAgency/com/PinkyUni/model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TourAgency/com/PinkyUni/view/TourListViewCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TourAgency/com/PinkyUni/view/TourListViewCell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/PinkyUni/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/PinkyUni/controller/Controller.java" afterDir="false" />
-    </list>
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -93,7 +78,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/PinkyUni/model/dao/TourDAO.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
@@ -172,11 +157,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/PinkyUni/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+            <state relative-caret-position="420">
+              <caret line="29" column="55" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -233,10 +218,10 @@
         <option value="$PROJECT_DIR$/src/com/PinkyUni/model/entity/Tour.java" />
         <option value="$PROJECT_DIR$/src/com/PinkyUni/model/dao/TourDAO.java" />
         <option value="$PROJECT_DIR$/src/com/PinkyUni/model/dao/XMLTourDAO.java" />
-        <option value="$PROJECT_DIR$/src/com/PinkyUni/controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/com/sample/data.xml" />
         <option value="$PROJECT_DIR$/src/com/PinkyUni/model/dao/UserDAO.java" />
         <option value="$PROJECT_DIR$/src/com/PinkyUni/model/dao/XMLUserDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/PinkyUni/controller/Controller.java" />
       </list>
     </option>
   </component>
@@ -313,6 +298,15 @@
               <item name="TourAgency" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="PinkyUni" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TourAgency" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TourAgency" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="sample" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -335,7 +329,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1571605420713" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1571605458734" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../TuraisJavaFxExamples-master" />
     <property name="project.structure.last.edited" value="Project" />
@@ -443,12 +437,12 @@
       <workItem from="1570826961760" duration="3164000" />
       <workItem from="1571565417626" duration="4279000" />
       <workItem from="1571574515046" duration="10357000" />
-      <workItem from="1571597241812" duration="8074000" />
+      <workItem from="1571597241812" duration="8368000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47384000" />
+    <option name="totallyTimeSpent" value="47678000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -467,7 +461,7 @@
       <window_info anchor="bottom" id="Find" order="3" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="4" />
       <window_info anchor="bottom" id="Run" order="5" weight="0.28470254" />
-      <window_info anchor="bottom" id="Debug" order="6" visible="true" weight="0.39943343" />
+      <window_info anchor="bottom" id="Debug" order="6" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="9" />
@@ -634,23 +628,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/PinkyUni/controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sample/data.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="111" selection-start-line="4" selection-start-column="111" selection-end-line="4" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/PinkyUni/model/entity/Tour.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1494">
@@ -696,6 +673,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/PinkyUni/model/dao/TourDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sample/data.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="111" selection-start-line="4" selection-start-column="111" selection-end-line="4" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/PinkyUni/model/dao/XMLTourDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-266">
@@ -706,10 +700,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/PinkyUni/model/dao/TourDAO.java">
+    <entry file="file://$PROJECT_DIR$/src/com/PinkyUni/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+        <state relative-caret-position="420">
+          <caret line="29" column="55" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
