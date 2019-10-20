@@ -1,5 +1,6 @@
 package com.PinkyUni.controller;
 
+import com.PinkyUni.model.dao.XMLTourDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -27,7 +28,8 @@ public class Controller {
         searchBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-
+                XMLTourDAO xmlTourDAO = new XMLTourDAO();
+                xmlTourDAO.updateTour(13, new Tour());
             }
         });
 
