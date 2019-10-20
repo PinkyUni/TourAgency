@@ -1,4 +1,4 @@
-package com.PinkyUni.model;
+package com.PinkyUni.model.entity;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -8,6 +8,9 @@ public class Order implements Serializable, Comparable<Order> {
     private int id;
     private String userPassport;
     private int tourId;
+
+    public Order() {
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -19,11 +22,13 @@ public class Order implements Serializable, Comparable<Order> {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(getUserPassport(), getTourId());
+    public int compareTo(Order o) {
+        return id - o.id;
     }
 
-    public Order() {
+    @Override
+    public int hashCode() {
+        return Objects.hash(getUserPassport(), getTourId());
     }
 
     public int getId() {
@@ -48,10 +53,5 @@ public class Order implements Serializable, Comparable<Order> {
 
     public void setTourId(int tourId) {
         this.tourId = tourId;
-    }
-
-    @Override
-    public int compareTo(Order o) {
-        return id - o.id;
     }
 }

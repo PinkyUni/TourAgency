@@ -1,4 +1,4 @@
-package com.PinkyUni.model;
+package com.PinkyUni.model.entity;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -22,10 +22,36 @@ public class Hotel implements Serializable, Comparable<Hotel> {
         return food;
     }
 
+    public Hotel() {
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Hotel hotel = (Hotel) o;
+        return getStars() == hotel.getStars() &&
+                getCountryCode() == hotel.getCountryCode() &&
+                Objects.equals(getName(), hotel.getName()) &&
+                Objects.equals(getAddress(), hotel.getAddress());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getCountryCode(), getStars(), getName(), getAddress());
+    }
+
+    @Override
+    public int compareTo(Hotel o) {
+        if (!name.equals(o.name))
+            return name.compareTo(o.name);
+        else
+            return id - o.id;
+    }
+
     public void setFood(FOOD food) {
         this.food = food;
     }
-
 
     public String getAddress() {
         return address;
@@ -41,9 +67,6 @@ public class Hotel implements Serializable, Comparable<Hotel> {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Hotel() {
     }
 
     public int getId() {
@@ -86,27 +109,4 @@ public class Hotel implements Serializable, Comparable<Hotel> {
         this.webSite = webSite;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Hotel hotel = (Hotel) o;
-        return getStars() == hotel.getStars() &&
-                getCountryCode() == hotel.getCountryCode() &&
-                Objects.equals(getName(), hotel.getName()) &&
-                Objects.equals(getAddress(), hotel.getAddress());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getCountryCode(), getStars(), getName(), getAddress());
-    }
-
-    @Override
-    public int compareTo(Hotel o) {
-        if (!name.equals(o.name))
-            return name.compareTo(o.name);
-        else
-            return id - o.id;
-    }
 }

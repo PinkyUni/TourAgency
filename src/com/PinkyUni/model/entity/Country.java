@@ -1,9 +1,12 @@
-package com.PinkyUni.model;
+package com.PinkyUni.model.entity;
 
 import java.io.Serializable;
 import java.util.Objects;
 
 public class Country implements Serializable, Comparable<Country> {
+
+    private CountryCode countryCode;
+    private String description;
 
     public enum CountryCode {
         BLR("Belarus"),
@@ -26,26 +29,7 @@ public class Country implements Serializable, Comparable<Country> {
         }
     }
 
-    private CountryCode countryCode;
-    private String description;
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public Country() {
-    }
-
-    public CountryCode getCountryCode() {
-        return countryCode;
-    }
-
-    public void setCountryCode(CountryCode countryCode) {
-        this.countryCode = countryCode;
     }
 
     @Override
@@ -64,5 +48,21 @@ public class Country implements Serializable, Comparable<Country> {
     @Override
     public int hashCode() {
         return Objects.hash(getCountryCode());
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public CountryCode getCountryCode() {
+        return countryCode;
+    }
+
+    public void setCountryCode(CountryCode countryCode) {
+        this.countryCode = countryCode;
     }
 }

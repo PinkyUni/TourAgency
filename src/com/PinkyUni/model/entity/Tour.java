@@ -1,4 +1,4 @@
-package com.PinkyUni.model;
+package com.PinkyUni.model.entity;
 
 import java.io.Serializable;
 import java.util.Arrays;

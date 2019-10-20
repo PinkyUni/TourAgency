@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import com.PinkyUni.view.TourListViewCell;
-import com.PinkyUni.model.Tour;
+import com.PinkyUni.model.entity.Tour;
 
 public class Controller {
 

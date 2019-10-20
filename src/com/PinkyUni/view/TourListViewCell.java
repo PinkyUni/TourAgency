@@ -1,6 +1,6 @@
 package com.PinkyUni.view;
 
-import com.PinkyUni.model.Tour;
+import com.PinkyUni.model.entity.Tour;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.image.Image;

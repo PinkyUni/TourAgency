@@ -1,4 +1,4 @@
-package com.PinkyUni.model;
+package com.PinkyUni.model.entity;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -10,15 +10,36 @@ public class User implements Serializable, Comparable<User> {
     private String passport;
     private String phoneNumber;
 
+    public User() {
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return getPassport().equals(user.getPassport());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getPassport());
+    }
+
+    @Override
+    public int compareTo(User o) {
+        if (name.equals(o.name)) {
+            return passport.compareTo(o.passport);
+        } else
+            return name.compareTo(o.name);
+    }
+
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public User() {
     }
 
     public String getName() {
@@ -43,27 +64,6 @@ public class User implements Serializable, Comparable<User> {
 
     public void setPassport(String passport) {
         this.passport = passport;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return getPassport().equals(user.getPassport());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getPassport());
-    }
-
-    @Override
-    public int compareTo(User o) {
-        if (name.equals(o.name)) {
-            return passport.compareTo(o.passport);
-        } else
-            return name.compareTo(o.name);
     }
 }
 
