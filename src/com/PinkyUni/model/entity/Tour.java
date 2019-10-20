@@ -7,7 +7,6 @@ import java.util.Objects;
 
 public class Tour implements Serializable, Comparable<Tour> {
 
-    private static int tourCount = 0;
     private int id;
     private String name;
     private Date departureTime;
@@ -18,14 +17,14 @@ public class Tour implements Serializable, Comparable<Tour> {
     private float price;
     private String image;
     private Country.CountryCode[] countryCodes;
-    private String[] hotelsId;
+    private String[] hotelIds;
 
-    enum TRANSPORT {
+    private enum TRANSPORT {
         BUS, TRAIN, PLANE
     }
 
-    enum TOUR_TYPE {
-        SHOPPING, ACTIVE, TOURISM
+    private enum TOUR_TYPE {
+        SHOPPING, ACTIVE, TOURISM;
     }
 
     public Tour() {
@@ -36,8 +35,8 @@ public class Tour implements Serializable, Comparable<Tour> {
         this.image = image;
     }
 
-    public Tour(String name, Date departureTime, Date arrivalTime, TRANSPORT transport, TOUR_TYPE type, String description) {
-        this.id = tourCount++;
+    public Tour(int id, String name, Date departureTime, Date arrivalTime, TRANSPORT transport, TOUR_TYPE type, String description) {
+        this.id = id;
         this.name = name;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
@@ -54,12 +53,12 @@ public class Tour implements Serializable, Comparable<Tour> {
         this.countryCodes = countryCodes;
     }
 
-    public String[] getHotelsId() {
-        return hotelsId;
+    public String[] getHotelIds() {
+        return hotelIds;
     }
 
-    public void setHotelsId(String[] hotelsId) {
-        this.hotelsId = hotelsId;
+    public void setHotelIds(String[] hotelIds) {
+        this.hotelIds = hotelIds;
     }
 
     public float getPrice() {
@@ -98,14 +97,14 @@ public class Tour implements Serializable, Comparable<Tour> {
                 getTransport() == tour.getTransport() &&
                 getType() == tour.getType() &&
                 Arrays.equals(getCountryCodes(), tour.getCountryCodes()) &&
-                Arrays.equals(getHotelsId(), tour.getHotelsId());
+                Arrays.equals(getHotelIds(), tour.getHotelIds());
     }
 
     @Override
     public int hashCode() {
         int result = Objects.hash(getName(), getDepartureTime(), getArrivalTime(), getTransport(), getType(), getPrice());
         result = 31 * result + Arrays.hashCode(getCountryCodes());
-        result = 31 * result + Arrays.hashCode(getHotelsId());
+        result = 31 * result + Arrays.hashCode(getHotelIds());
         return result;
     }
 
@@ -145,16 +144,17 @@ public class Tour implements Serializable, Comparable<Tour> {
         return transport;
     }
 
-    public void setTransport(TRANSPORT transport) {
-        this.transport = transport;
+    public void setTransport(String transport) {
+        TRANSPORT transport1 = TRANSPORT.valueOf(transport);
+        this.transport = transport1;
     }
 
     public TOUR_TYPE getType() {
         return type;
     }
 
-    public void setType(TOUR_TYPE type) {
-        this.type = type;
+    public void setType(String type) {
+        this.type = TOUR_TYPE.valueOf(type);
     }
 
     public String getDescription() {
