@@ -10,6 +10,8 @@ import javafx.scene.input.MouseEvent;
 import com.PinkyUni.view.TourListViewCell;
 import com.PinkyUni.model.entity.Tour;
 
+import java.util.ArrayList;
+
 public class Controller {
 
     @FXML
@@ -22,14 +24,15 @@ public class Controller {
     void initialize() {
         ObservableList<Tour> items = FXCollections.observableArrayList();
         toursList.setItems(items);
-        items.add(new Tour("The best tour ever", "C:\\Users\\Anya\\Pictures\\sticker\\img\\cat.jpg"));
+        //items.add(new Tour("The best tour ever", "C:\\Users\\Anya\\Pictures\\sticker\\img\\cat.jpg"));
         toursList.setCellFactory(param -> new TourListViewCell());
 
         searchBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 XMLTourDAO xmlTourDAO = new XMLTourDAO();
-                xmlTourDAO.updateTour(13, new Tour());
+                ArrayList<Tour> arrayList = xmlTourDAO.getTours();
+                items.addAll(arrayList);
             }
         });
 

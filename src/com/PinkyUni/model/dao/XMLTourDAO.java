@@ -2,7 +2,6 @@ package com.PinkyUni.model.dao;
 
 import com.PinkyUni.model.entity.Country;
 import com.PinkyUni.model.entity.Tour;
-import com.sun.javafx.scene.paint.GradientUtils;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
@@ -10,7 +9,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -26,7 +24,6 @@ public class XMLTourDAO implements TourDAO {
 
     private final String filepath = "src/com/sample/data.xml";
     private final File xmlFile = new File(filepath);
-    private ArrayList<Tour> tourList = new ArrayList<>();
 
     @Override
     public void addTour(Tour tour) {
@@ -77,7 +74,8 @@ public class XMLTourDAO implements TourDAO {
     }
 
     @Override
-    public void getTours() {
+    public ArrayList<Tour> getTours() {
+        ArrayList<Tour> tourList = new ArrayList<>();
         try {
             Document document = parseXmlFile();
             NodeList tourNodes = document.getDocumentElement().getElementsByTagName("Tour");
@@ -101,29 +99,13 @@ public class XMLTourDAO implements TourDAO {
                 }
                 tour.setCountryCodes(countryCodes);
                 tour.setHotelIds(attributes.getNamedItem("hotelIds").getNodeValue().split(","));
-
                 tourList.add(tour);
-//                tour.setId(tours.item(i).getNo);
-//                Node tour = tours.item(i);
-                // Если нода не текст, то это книга - заходим внутрь
-//                if (tour.getNodeType() != Node.TEXT_NODE) {
-//                    NodeList tourProps = tour.getChildNodes();
-//                    for(int j = 0; j < tourProps.getLength(); j++) {
-//                        Node tourProp = tourProps.item(j);
-//
-//                        // Если нода не текст, то это один из параметров книги - печатаем
-//                        if (tourProp.getNodeType() != Node.TEXT_NODE) {
-//                            System.out.println(tourProp.getNodeName() + ":" + tourProp.getChildNodes().item(0).getTextContent());
-//                        }
-//                    }
-//                    System.out.println("===========>>>>");
-//                }
             }
             System.out.println("finished");
         } catch (SAXException | IOException | ParserConfigurationException | ParseException e) {
             e.printStackTrace();
         }
-
+        return tourList;
     }
 
     private Document parseXmlFile() throws IOException, SAXException, ParserConfigurationException {
@@ -142,40 +124,17 @@ public class XMLTourDAO implements TourDAO {
 
     private Element createTourNode(Tour tour, Document document) {
         Element newNode = document.createElement("Tour");
-
-        Element id = document.createElement("id");
-        id.setTextContent(String.valueOf(tour.getId()));
-        newNode.appendChild(id);
-        Element name = document.createElement("name");
-        name.setTextContent(tour.getName());
-        newNode.appendChild(name);
-        Element departureTime = document.createElement("departureTime");
-        departureTime.setTextContent(String.valueOf(tour.getDepartureTime()));
-        newNode.appendChild(departureTime);
-        Element arrivalTime = document.createElement("arrivalTime");
-        arrivalTime.setTextContent(String.valueOf(tour.getArrivalTime()));
-        newNode.appendChild(arrivalTime);
-        Element transport = document.createElement("transport");
-        transport.setTextContent(String.valueOf(tour.getTransport()));
-        newNode.appendChild(transport);
-        Element type = document.createElement("type");
-        type.setTextContent(String.valueOf(tour.getType()));
-        newNode.appendChild(type);
-        Element description = document.createElement("description");
-        description.setTextContent(String.valueOf(tour.getDescription()));
-        newNode.appendChild(description);
-        Element price = document.createElement("price");
-        price.setTextContent(String.valueOf(tour.getPrice()));
-        newNode.appendChild(price);
-        Element image = document.createElement("image");
-        image.setTextContent(String.valueOf(tour.getImage()));
-        newNode.appendChild(image);
-        Element countryCodes = document.createElement("countryCodes");
-        countryCodes.setTextContent(Arrays.toString(tour.getCountryCodes()));
-        newNode.appendChild(countryCodes);
-        Element hotelIds = document.createElement("hotelIds");
-        hotelIds.setTextContent(Arrays.toString(tour.getHotelIds()));
-        newNode.appendChild(hotelIds);
+        newNode.setAttribute("id", String.valueOf(tour.getId()));
+        newNode.setAttribute("name", tour.getName());
+        newNode.setAttribute("departureTime", String.valueOf(tour.getDepartureTime()));
+        newNode.setAttribute("arrivalTime", String.valueOf(tour.getArrivalTime()));
+        newNode.setAttribute("description", tour.getDescription());
+        newNode.setAttribute("transport", String.valueOf(tour.getTransport()));
+        newNode.setAttribute("type", String.valueOf(tour.getType()));
+        newNode.setAttribute("price", String.valueOf(tour.getPrice()));
+        newNode.setAttribute("image", tour.getImage());
+        newNode.setAttribute("countryCodes", Arrays.toString(tour.getCountryCodes()));
+        newNode.setAttribute("hotelIds", Arrays.toString(tour.getHotelIds()));
         return newNode;
     }
 }

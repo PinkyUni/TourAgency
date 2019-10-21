@@ -24,7 +24,7 @@ public class TourListViewCell extends ListCell<Tour> {
         } else {
             ImageView imageView = new ImageView();
             Label textField = new Label();
-            File file = new File(tour.getImage());
+            File file = new File("src/com/sample/" + tour.getImage());
             Image image = new Image(file.toURI().toString());
             imageView.setImage(image);
             setText(null);

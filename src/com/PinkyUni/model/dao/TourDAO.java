@@ -2,11 +2,11 @@ package com.PinkyUni.model.dao;
 
 import com.PinkyUni.model.entity.Tour;
 
-import javax.xml.parsers.ParserConfigurationException;
+import java.util.ArrayList;
 
 public interface TourDAO {
-    void addTour(Tour tour) throws ParserConfigurationException;
+    void addTour(Tour tour);
     void updateTour(int id, Tour tour);
     void deleteTour(int id);
-    void getTours();
+    ArrayList<Tour> getTours();
 }
