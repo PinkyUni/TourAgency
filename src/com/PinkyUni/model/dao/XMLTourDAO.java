@@ -22,17 +22,17 @@ import java.util.Arrays;
 
 public class XMLTourDAO implements TourDAO {
 
-    private final String filepath = "src/com/sample/data.xml";
+    private final String filepath = "src/com/sample/tours_data.xml";
     private final File xmlFile = new File(filepath);
 
     @Override
     public void addTour(Tour tour) {
         try {
-            Document document = parseXmlFile();
+            Document document = XmlDAO.parseXmlFile(xmlFile);
             Node root = document.getFirstChild();
             Element newNode = createTourNode(tour, document);
             root.appendChild(newNode);
-            saveXmlFile(document);
+            XmlDAO.saveXmlFile(document, filepath);
         } catch (SAXException | IOException | ParserConfigurationException | TransformerException ex) {
             ex.printStackTrace();
         }
@@ -41,7 +41,7 @@ public class XMLTourDAO implements TourDAO {
     @Override
     public void updateTour(int id, Tour tour) {
         try {
-            Document document = parseXmlFile();
+            Document document = XmlDAO.parseXmlFile(xmlFile);
             NodeList tourNodes = document.getDocumentElement().getElementsByTagName("Tour");
             for (int i = 0; i < tourNodes.getLength(); i++) {
                 if (Integer.parseInt(tourNodes.item(i).getAttributes().getNamedItem("id").getNodeValue()) == id) {
@@ -49,7 +49,7 @@ public class XMLTourDAO implements TourDAO {
                     tourNodes.item(i).getParentNode().replaceChild(newTour, tourNodes.item(i));
                 }
             }
-            saveXmlFile(document);
+            XmlDAO.saveXmlFile(document, filepath);
             System.out.println("tour updated");
         } catch (SAXException | ParserConfigurationException | IOException | TransformerException e) {
             e.printStackTrace();
@@ -59,14 +59,14 @@ public class XMLTourDAO implements TourDAO {
     @Override
     public void deleteTour(int id) {
         try {
-            Document document = parseXmlFile();
+            Document document = XmlDAO.parseXmlFile(xmlFile);
             NodeList tourNodes = document.getDocumentElement().getElementsByTagName("Tour");
             for (int i = 0; i < tourNodes.getLength(); i++) {
                 if (Integer.parseInt(tourNodes.item(i).getAttributes().getNamedItem("id").getNodeValue()) == id) {
                     tourNodes.item(i).getParentNode().removeChild(tourNodes.item(i));
                 }
             }
-            saveXmlFile(document);
+            XmlDAO.saveXmlFile(document, filepath);
             System.out.println("tour deleted");
         } catch (SAXException | ParserConfigurationException | IOException | TransformerException e) {
             e.printStackTrace();
@@ -77,7 +77,7 @@ public class XMLTourDAO implements TourDAO {
     public ArrayList<Tour> getTours() {
         ArrayList<Tour> tourList = new ArrayList<>();
         try {
-            Document document = parseXmlFile();
+            Document document = XmlDAO.parseXmlFile(xmlFile);
             NodeList tourNodes = document.getDocumentElement().getElementsByTagName("Tour");
             for (int i = 0; i < tourNodes.getLength(); i++) {
                 Tour tour = new Tour();
@@ -106,20 +106,6 @@ public class XMLTourDAO implements TourDAO {
             e.printStackTrace();
         }
         return tourList;
-    }
-
-    private Document parseXmlFile() throws IOException, SAXException, ParserConfigurationException {
-        DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-        Document document = documentBuilder.parse(xmlFile);
-        document.normalize();
-        return document;
-    }
-
-    private void saveXmlFile(Document document) throws TransformerException {
-        Transformer transformer = TransformerFactory.newInstance().newTransformer();
-        DOMSource source = new DOMSource(document);
-        StreamResult result = new StreamResult(new File(filepath));
-        transformer.transform(source, result);
     }
 
     private Element createTourNode(Tour tour, Document document) {
