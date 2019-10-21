@@ -5,6 +5,7 @@ import java.util.Objects;
 
 public class User implements Serializable, Comparable<User> {
 
+    private int id;
     private String name;
     private String passwordHash;
     private String passport;
@@ -32,6 +33,14 @@ public class User implements Serializable, Comparable<User> {
             return passport.compareTo(o.passport);
         } else
             return name.compareTo(o.name);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getPhoneNumber() {
