@@ -2,14 +2,14 @@ package com.PinkyUni.model.dao;
 
 public class DAOFactory {
 
-    private final DAOFactory daoFactory = new DAOFactory();
+    private static final DAOFactory daoFactory = new DAOFactory();
 
     private final TourDAO tourDAO = new XMLTourDAO();
     private final UserDAO userDAO = new XMLUserDAO();
 
     private DAOFactory(){}
 
-    public DAOFactory getInstance() {
+    public static DAOFactory getInstance() {
         return daoFactory;
     }
 
