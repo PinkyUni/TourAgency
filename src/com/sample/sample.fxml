@@ -4,19 +4,20 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.Pane?>
 
-<?import javafx.scene.control.ListView?>
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
-      xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.PinkyUni.controller.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.PinkyUni.controller.Controller">
    <children>
-      <Label layoutX="11.0" layoutY="14.0" text="Destination" />
+      <Label layoutX="14.0" layoutY="14.0" text="Destination" />
       <ComboBox layoutX="12.0" layoutY="31.0" prefWidth="150.0" promptText="Country" />
       <Label layoutX="14.0" layoutY="64.0" text="Check-in date" />
       <DatePicker layoutX="14.0" layoutY="81.0" prefHeight="25.0" prefWidth="150.0" />
       <DatePicker layoutX="14.0" layoutY="132.0" prefHeight="25.0" prefWidth="150.0" />
-      <Label layoutX="17.0" layoutY="115.0" text="Check-out date" />
-      <Button fx:id="searchBtn" layoutX="61.0" layoutY="241.0" mnemonicParsing="false" text="Search" />
-      <ListView fx:id="toursList" layoutX="178.0" layoutY="24.0" prefHeight="364.0" prefWidth="409.0" />
+      <Label layoutX="14.0" layoutY="115.0" prefHeight="17.0" prefWidth="87.0" text="Check-out date" />
+      <Button fx:id="searchBtn" layoutX="61.0" layoutY="188.0" mnemonicParsing="false" text="Search" />
+      <ListView fx:id="toursList" layoutX="178.0" layoutY="42.0" prefHeight="346.0" prefWidth="409.0" />
+      <Label layoutX="383.0" layoutY="14.0" text="Sort by:" />
+      <ComboBox layoutX="437.0" layoutY="10.0" prefWidth="150.0" promptText="Name" />
    </children>
 </Pane>
