@@ -6,6 +6,7 @@ public class DAOFactory {
 
     private final TourDAO tourDAO = new XMLTourDAO();
     private final UserDAO userDAO = new XMLUserDAO();
+    private final OrderDAO orderDAO = new XMLOrderDAO();
 
     private DAOFactory(){}
 
@@ -19,5 +20,9 @@ public class DAOFactory {
 
     public  UserDAO getUserDAO() {
         return userDAO;
+    }
+
+    public OrderDAO getOrderDAO() {
+        return orderDAO;
     }
 }

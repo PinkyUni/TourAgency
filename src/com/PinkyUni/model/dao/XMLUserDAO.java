@@ -3,6 +3,7 @@ package com.PinkyUni.model.dao;
 import com.PinkyUni.model.entity.User;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
+
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.io.File;
@@ -15,7 +16,7 @@ public class XMLUserDAO implements UserDAO {
     private final File xmlFile = new File(filepath);
 
     @Override
-    public void addUser(User user) {
+    public void addUser(User user) throws DataSourceException {
         try {
             Document document = XmlDAO.parseXmlFile(xmlFile);
             Node root = document.getFirstChild();
@@ -23,12 +24,27 @@ public class XMLUserDAO implements UserDAO {
             root.appendChild(newNode);
             XmlDAO.saveXmlFile(document, filepath);
         } catch (SAXException | IOException | ParserConfigurationException | TransformerException ex) {
-            ex.printStackTrace();
+            throw new DataSourceException("File " + xmlFile.getName() + " not found or is incorrect.");
         }
     }
 
     @Override
-    public ArrayList<User> getUsers() {
+    public User getUserByName(String name) throws DataSourceException, NotFoundException {
+        try {
+            Document document = XmlDAO.parseXmlFile(xmlFile);
+            NodeList userNodes = document.getDocumentElement().getElementsByTagName("User");
+            for (int i = 0; i < userNodes.getLength(); i++) {
+                if (userNodes.item(i).getAttributes().getNamedItem("name").getNodeValue().equals(name))
+                    return getUserFromNode(userNodes.item(i));
+            }
+            throw new NotFoundException("User " + name + " not found");
+        } catch (SAXException | IOException | ParserConfigurationException e) {
+            throw new DataSourceException("File " + xmlFile.getName() + " not found or is incorrect.");
+        }
+    }
+
+    @Override
+    public ArrayList<User> getUsers() throws DataSourceException {
         ArrayList<User> userList = new ArrayList<>();
         try {
             Document document = XmlDAO.parseXmlFile(xmlFile);
@@ -38,18 +54,27 @@ public class XMLUserDAO implements UserDAO {
             }
             System.out.println("finished");
         } catch (SAXException | IOException | ParserConfigurationException e) {
-            e.printStackTrace();
+            throw new DataSourceException("File " + xmlFile.getName() + " not found or is incorrect.");
         }
         return userList;
     }
 
+//    @Override
+//    public boolean exists(User user) throws NotFoundException {
+//        ArrayList<User> users = getUsers();
+//        for (User u: users) {
+//            if (u.getId() == user.getId())
+//                return true;
+//        }
+//        throw new NotFoundException("User " + user.getName() + " doesn't exist.");
+//    }
+
     @Override
-    public boolean exists(User user) {
+    public boolean exists(String name, String password) throws NotFoundException, DataSourceException {
         ArrayList<User> users = getUsers();
-        for (User u: users) {
-            if (u.getId() == user.getId())
+        for (User user : users)
+            if (user.getName().equals(name) && user.getPasswordHash().equals(password))
                 return true;
-        }
         return false;
     }
 
