@@ -18,5 +18,5 @@ public interface AgencyService {
 
     List<Tour> getUserTours(User user) throws DataSourceException, NotFoundException;
 
-    List<Tour> getByParams(String countryName, Date departure, Date arrival) throws DataSourceException;
+    List<Tour> getByParams(String countryName, Date departure, Date arrival) throws DataSourceException, NotEnoughDataException;
 }

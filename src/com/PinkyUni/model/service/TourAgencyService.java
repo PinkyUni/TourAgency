@@ -37,12 +37,12 @@ public class TourAgencyService implements AgencyService {
     }
 
     @Override
-    public List<Tour> getByParams(String countryName, Date departure, Date arrival) throws DataSourceException {
+    public List<Tour> getByParams(String countryName, Date departure, Date arrival) throws DataSourceException, NotEnoughDataException {
         List<Tour> tours = tourDAO.getTours();
         List<Tour> result = new ArrayList<>();
-        for (Tour tour: tours) {
+        for (Tour tour : tours) {
             if ((Arrays.stream(tour.getCountryCodes()).anyMatch(countryCode -> countryCode.getName().equals(countryName)))
-                && (tour.getDepartureTime().after(departure)) && (tour.getArrivalTime().before(arrival))) {
+                    && (tour.getDepartureTime().after(departure)) && (tour.getArrivalTime().before(arrival))) {
                 result.add(tour);
             }
         }

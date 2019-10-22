@@ -15,6 +15,7 @@ public class Country implements Serializable, Comparable<Country> {
         RUS("Russia"),
         UK("United Kingdom"),
         NO("Norway"),
+        IS("Iceland"),
         ITL("Italy");
 
         //...

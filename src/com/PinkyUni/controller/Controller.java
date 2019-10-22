@@ -5,16 +5,12 @@ import com.PinkyUni.model.entity.Country;
 import com.PinkyUni.model.entity.User;
 import com.PinkyUni.model.service.*;
 import com.PinkyUni.view.TourListViewCell;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import com.PinkyUni.model.entity.Tour;
 
-import java.lang.reflect.Array;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Controller {
@@ -113,30 +109,37 @@ public class Controller {
         });
 
         userToursBtn.setOnMouseClicked(mouseEvent -> {
-            try {
-                isMine = true;
-                items.clear();
-                items.addAll(agencyService.getUserTours(currentUser));
-            } catch (DataSourceException | NotFoundException e) {
-                showAlert("Error", "Not Found", "Data source is not available!!!!!!!!!!");
-            }
+            if (currentUser != null)
+                try {
+                    isMine = true;
+                    items.clear();
+                    items.addAll(agencyService.getUserTours(currentUser));
+                } catch (DataSourceException | NotFoundException e) {
+                    showAlert("Error", "Not Found", "Data source is not available!!!!!!!!!!");
+                }
+            else
+                showAlert("Error", "Login firstly", "Please login to see booked tours.");
         });
 
         searchBtn.setOnMouseClicked(mouseEvent -> {
             try {
+                if (countryField.getValue().isEmpty() || departureField.getValue() == null || arrivalField.getValue() == null)
+                    throw new NotEnoughDataException("Fill all fields");
                 List<Tour> tourList = agencyService.getByParams(countryField.getValue(), java.sql.Date.valueOf(departureField.getValue()),
                         java.sql.Date.valueOf(arrivalField.getValue()));
                 items.clear();
                 items.addAll(tourList);
             } catch (DataSourceException e) {
                 showAlert("Error", "Not Found", "Data source is not available!!!!!!!!!!");
+            } catch (NotEnoughDataException e) {
+                showAlert("Error", "Wrong input", "Please fill all fields");
             }
 
         });
 
         loginBtn.setOnMouseClicked(mouseEvent -> {
             String name = nameField.getText();
-            String password = passwordField.getText();
+            String password = HashService.getHash(passwordField.getText());
             try {
                 currentUser = userService.singIn(name, password);
                 showAllTours();
@@ -151,7 +154,7 @@ public class Controller {
 
         registerBtn.setOnMouseClicked(mouseEvent -> {
             String name = nameField.getText();
-            String password = passwordField.getText();
+            String password = HashService.getHash(passwordField.getText());
             String passport = passportField.getText();
             String phone = phoneField.getText();
             try {
