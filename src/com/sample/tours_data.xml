@@ -4,4 +4,12 @@
           description="The best short trip to Norway to explore the main attractions of the country." hotelIds="8"
           id="1" image="norway.png" name="Amazing trip to Norway" price="230" transport="PLANE" type="ACTIVE"/>
 
+    <Tour arrivalTime="17.11.2019" countryCodes="NO" departureTime="12.11.2019"
+          description="The best short trip to Norway to explore the main attractions of the country." hotelIds="8"
+          id="2" image="norway.png" name="four" price="4" transport="PLANE" type="ACTIVE"/>
+
+    <Tour arrivalTime="17.11.2019" countryCodes="NO" departureTime="12.11.2019"
+          description="The best short trip to Norway to explore the main attractions of the country." hotelIds="8"
+          id="3" image="norway.png" name="twenty" price="20" transport="PLANE" type="ACTIVE"/>
+
 </TourList>
