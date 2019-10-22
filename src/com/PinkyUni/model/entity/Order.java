@@ -12,6 +12,11 @@ public class Order implements Serializable, Comparable<Order> {
     public Order() {
     }
 
+    public Order(String userPassport, int tourId) {
+        this.userPassport = userPassport;
+        this.tourId = tourId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -14,6 +14,18 @@ public class User implements Serializable, Comparable<User> {
     public User() {
     }
 
+    public User(String name, String passwordHash) {
+        this.name = name;
+        this.passwordHash = passwordHash;
+    }
+
+    public User(String name, String passwordHash, String passport, String phoneNumber) {
+        this.name = name;
+        this.passwordHash = passwordHash;
+        this.passport = passport;
+        this.phoneNumber = phoneNumber;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
