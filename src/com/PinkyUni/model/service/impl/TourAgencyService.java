@@ -1,9 +1,12 @@
-package com.PinkyUni.model.service;
+package com.PinkyUni.model.service.impl;
 
+import com.PinkyUni.exceptions.DataSourceException;
+import com.PinkyUni.exceptions.NotFoundException;
 import com.PinkyUni.model.dao.*;
-import com.PinkyUni.model.entity.Country;
 import com.PinkyUni.model.entity.Tour;
 import com.PinkyUni.model.entity.User;
+import com.PinkyUni.model.service.AgencyService;
+import com.PinkyUni.exceptions.NotEnoughDataException;
 
 import java.util.ArrayList;
 import java.util.Arrays;

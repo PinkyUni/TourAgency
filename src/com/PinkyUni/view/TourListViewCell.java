@@ -1,31 +1,24 @@
 package com.PinkyUni.view;
 
 import com.PinkyUni.controller.Controller;
-import com.PinkyUni.model.dao.DataSourceException;
+import com.PinkyUni.exceptions.DataSourceException;
 import com.PinkyUni.model.entity.Country;
 import com.PinkyUni.model.entity.Tour;
 import com.PinkyUni.model.service.ServiceFactory;
 import com.PinkyUni.model.service.UserService;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
-import javafx.scene.text.TextAlignment;
 
-import javax.swing.*;
 import java.io.File;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 
 public class TourListViewCell extends ListCell<Tour> {
 

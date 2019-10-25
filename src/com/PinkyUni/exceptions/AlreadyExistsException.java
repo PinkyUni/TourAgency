@@ -1,4 +1,4 @@
-package com.PinkyUni.model.dao;
+package com.PinkyUni.exceptions;
 
 public class AlreadyExistsException extends Exception {
 

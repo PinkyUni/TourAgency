@@ -1,5 +1,8 @@
 package com.PinkyUni.model.service;
 
+import com.PinkyUni.model.service.impl.TourAgencyService;
+import com.PinkyUni.model.service.impl.TourUserService;
+
 public class ServiceFactory {
 
     private static final ServiceFactory serviceFactory = new ServiceFactory();

@@ -1,4 +1,4 @@
-package com.PinkyUni.model.service;
+package com.PinkyUni.exceptions;
 
 public class NotEnoughDataException extends Exception {
 

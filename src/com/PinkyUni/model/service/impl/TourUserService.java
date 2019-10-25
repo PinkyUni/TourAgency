@@ -1,8 +1,13 @@
-package com.PinkyUni.model.service;
+package com.PinkyUni.model.service.impl;
 
+import com.PinkyUni.exceptions.AlreadyExistsException;
+import com.PinkyUni.exceptions.DataSourceException;
+import com.PinkyUni.exceptions.NotFoundException;
 import com.PinkyUni.model.dao.*;
 import com.PinkyUni.model.entity.Tour;
 import com.PinkyUni.model.entity.User;
+import com.PinkyUni.exceptions.NotEnoughDataException;
+import com.PinkyUni.model.service.UserService;
 
 public class TourUserService implements UserService {
 

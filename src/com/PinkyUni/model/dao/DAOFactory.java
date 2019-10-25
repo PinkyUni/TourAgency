@@ -1,5 +1,9 @@
 package com.PinkyUni.model.dao;
 
+import com.PinkyUni.model.dao.impl.XMLOrderDAO;
+import com.PinkyUni.model.dao.impl.XMLTourDAO;
+import com.PinkyUni.model.dao.impl.XMLUserDAO;
+
 public class DAOFactory {
 
     private static final DAOFactory daoFactory = new DAOFactory();

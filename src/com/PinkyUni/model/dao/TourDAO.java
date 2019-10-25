@@ -1,5 +1,7 @@
 package com.PinkyUni.model.dao;
 
+import com.PinkyUni.exceptions.DataSourceException;
+import com.PinkyUni.exceptions.NotFoundException;
 import com.PinkyUni.model.entity.Order;
 import com.PinkyUni.model.entity.Tour;
 import java.util.List;

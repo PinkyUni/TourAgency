@@ -1,5 +1,9 @@
-package com.PinkyUni.model.dao;
+package com.PinkyUni.model.dao.impl;
 
+import com.PinkyUni.exceptions.DataSourceException;
+import com.PinkyUni.exceptions.NotFoundException;
+import com.PinkyUni.model.dao.TourDAO;
+import com.PinkyUni.model.dao.XmlDAO;
 import com.PinkyUni.model.entity.Country;
 import com.PinkyUni.model.entity.Order;
 import com.PinkyUni.model.entity.Tour;

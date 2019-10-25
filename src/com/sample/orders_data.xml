@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Orders>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Orders>
     <Order id="0" tourId="2" userPassport="aaa"/>
-</Orders>
+<Order id="0" tourId="1" userPassport="aaa"/></Orders>

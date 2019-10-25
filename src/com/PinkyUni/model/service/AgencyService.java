@@ -1,8 +1,8 @@
 package com.PinkyUni.model.service;
 
-import com.PinkyUni.model.dao.DataSourceException;
-import com.PinkyUni.model.dao.NotFoundException;
-import com.PinkyUni.model.entity.Country;
+import com.PinkyUni.exceptions.DataSourceException;
+import com.PinkyUni.exceptions.NotEnoughDataException;
+import com.PinkyUni.exceptions.NotFoundException;
 import com.PinkyUni.model.entity.Tour;
 import com.PinkyUni.model.entity.User;
 
