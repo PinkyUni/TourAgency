@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Tour-agency>
+    <Users>
+        <User>
+            <name>Anya</name>
+            <passport>aaa</passport>
+            <password-hash>86f7e437faa5a7fce15d1ddcb9eaeaea377667b8</password-hash>
+            <phone-number>ffd</phone-number>
+        </User>
+    </Users>
+    <Orders>
+        <Order id="0">
+            <tour-id>1</tour-id>
+            <user-passport>aaa</user-passport>
+        </Order>
+    </Orders>
+    <Hotels>
+        <Hotel id="1">
+            <name>Cozy Hotel</name>
+            <country-name>Norway</country-name>
+            <address>Karl Johans gate 18, 0159 Oslo</address>
+            <stars>4</stars>
+            <web-site>cozy.com</web-site>
+            <description>Economy hotel with cozy rooms in the center of Oslo</description>
+        </Hotel>
+    </Hotels>
+    <Countries>
+        <Country>
+            <name>Norway</name>
+            <description>Norway is a country in the north of Europe. It is the western part of the Scandinavian
+                peninsula.
+            </description>
+        </Country>
+        <Country>
+            <name>Iceland</name>
+            <description>Iceland is an island country in the North Atlantic, between Greenland and Norway, formerly a
+                possession of Denmark. It is culturally considered to be part of Europe.
+            </description>
+        </Country>
+    </Countries>
+    <Tours>
+        <Tour id="1">
+            <name>Amazing trip to Norway</name>
+            <type>ACTIVE</type>
+            <image>norway.png</image>
+            <departure-time>12.11.2019</departure-time>
+            <arrival-time>17.11.2019</arrival-time>
+            <countries>
+                <country-name>Norway</country-name>
+            </countries>
+            <price>230</price>
+            <transport>PLANE</transport>
+            <hotel-ids>
+                <hotel-id>8</hotel-id>
+            </hotel-ids>
+            <description>The best short trip to Norway to explore the main attractions of the country.</description>
+        </Tour>
+    </Tours>
+</Tour-agency>
