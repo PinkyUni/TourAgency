@@ -63,16 +63,6 @@ public class XMLUserDAO implements UserDAO {
         return userList;
     }
 
-//    @Override
-//    public boolean exists(User user) throws NotFoundException {
-//        ArrayList<User> users = getUsers();
-//        for (User u: users) {
-//            if (u.getId() == user.getId())
-//                return true;
-//        }
-//        throw new NotFoundException("User " + user.getName() + " doesn't exist.");
-//    }
-
     @Override
     public boolean exists(String name, String password) throws NotFoundException, DataSourceException {
         ArrayList<User> users = getUsers();
