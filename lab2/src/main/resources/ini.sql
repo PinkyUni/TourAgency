@@ -3,7 +3,7 @@ USE tour_agency;
 CREATE TABLE IF NOT EXISTS users (
     passport VARCHAR(9) PRIMARY KEY NOT NULL,
     name VARCHAR(255) UNIQUE NOT NULL,
-    password_hash VARCHAR(255),
+    password_hash VARCHAR(255) NOT NULL,
     phone_number VARCHAR(20)
 );
 CREATE TABLE IF NOT EXISTS tours (
